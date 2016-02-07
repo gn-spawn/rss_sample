@@ -27,7 +27,7 @@ angular.module('starter', ['ionic'])
   this.url = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://natalie.mu/music/feed/news&num=20&callback=JSON_CALLBACK';
   this.getFeed = function () {
     $http.jsonp(this.url).success(function(data){
-      console.log(data);
+      console.log(data.responseData.feed.entries);
     });
   };
 })
