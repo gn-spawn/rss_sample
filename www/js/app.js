@@ -28,6 +28,8 @@ angular.module('starter', ['ionic'])
   this.getFeed = function () {
     $http.jsonp(this.url).success(function(data){
       console.log(data.responseData.feed.entries);
+      return data.responseData.feed.entries;
     });
   };
+  this.entries = this.getFeed();
 })
