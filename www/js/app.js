@@ -1,5 +1,4 @@
 // Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -25,11 +24,7 @@ angular.module('starter', ['ionic'])
 
 .controller('MainCtrl', function($http) {
   this.url = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://natalie.mu/music/feed/news&num=20&callback=JSON_CALLBACK';
-  this.getFeed = function () {
-    $http.jsonp(this.url).success(function(data){
-      console.log(data.responseData.feed.entries);
-      return data.responseData.feed.entries;
+    $http.jsonp(this.url).success(function (data) {
+      this.entries =  data.responseData.feed.entries;
     });
-  };
-  this.entries = this.getFeed();
 })

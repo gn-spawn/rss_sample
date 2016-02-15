@@ -28,20 +28,17 @@
     <h1 class="title">RSS to Json</h1>
   </ion-header-bar>
   <ion-content ng-controller="MainCtrl as main">
-    <button class="button button-full button-dark" ng-click="main.getFeed()">
+    <button class="button button-full button-dark">
       GetFeed
     </button>
-
-    <!--<div ng-repeat="entry in entries">-->
-      <div class="card" ng-repeat="entry in main.entries">
-        <div class="item item-divider" >
-          <a>{{entry.title}}</a>
-        </div>
-        <div class="item item-text-wrap">
-          {{entry.content}}
-        </div>
+    <div class="card" ng-repeat-start="entry in main.entries">
+      <div class="item item-divider">
+        <a>{{entry.title}}</a>
       </div>
-    <!--</div>-->
+      <div class="item item-text-wrap">
+        {{entry.content}}
+      </div>
+    </div>
   </ion-content>
 </ion-pane>
 </body>
