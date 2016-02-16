@@ -22,9 +22,10 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller('MainCtrl', function($http) {
-  this.url = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://natalie.mu/music/feed/news&num=20&callback=JSON_CALLBACK';
-    $http.jsonp(this.url).success(function (data) {
-      this.entries =  data.responseData.feed.entries;
+.controller('MainCtrl', function($scope,$http) {
+  $scope.url = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://natalie.mu/music/feed/news&num=20&callback=JSON_CALLBACK';
+  $scope.entries;
+    $http.jsonp($scope.url).success(function (data) {
+      $scope.entries =  data.responseData.feed.entries;
     });
 })
